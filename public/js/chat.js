@@ -18,6 +18,9 @@ function scrollToBottom(){
 
 socket.on('connect', function(){
   var params = jQuery.deparam(window.location.search);
+  // var template = jQuery('#room-name').html();
+  // var html = Mustache.render(template, {roomName: params.room});
+  // jQuery('#room-name').append(html);
 
   socket.emit('join', params, function(err){
     if (err) {
@@ -35,11 +38,14 @@ socket.on('disconnect', function(){
 });
 
 socket.on('updateUserList', function(users){
+  var h3 =jQuery('<h3>Room Name</h3>');
   var ol = jQuery('<ol></ol>');
 
-  users.forEach(function (user){
+  users[0].forEach(function (user){
     ol.append(jQuery('<li></li>').text(user))
   });
+  h3.append(jQuery('<h4></h4>').text(users[1]));
+  jQuery('#roomName').html(h3);
   jQuery('#users').html(ol);
 });
 
@@ -76,7 +82,6 @@ jQuery('#message-form').on('submit', function(e){
   var messageTextbox =jQuery('[name=message]')
 
   socket.emit('createMessage', {
-    from: 'User',
     text: messageTextbox.val()
   }, function (){
     messageTextbox.val('');

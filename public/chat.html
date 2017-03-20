@@ -9,8 +9,12 @@
   <body class="chat">
 
     <div class="chat__sidebar">
-      <h3>People</h3>
-      <div id="users">
+      <div id="roomName">
+      </div>
+      <div>
+        <h3>People</h3>
+        <div id="users">
+        </div>
       </div>
     </div>
 
@@ -30,7 +34,7 @@
       <li class="message">
       <div class="message__title">
         <h4>{{from}}</h4>
-        <span>{{createdAt}}</spam>
+        <span>{{createdAt}}</span>
       </div class="message__body">
         <p>{{text}}</p>
       <div></div>
@@ -41,7 +45,7 @@
       <li class="message">
       <div class="message__title">
         <h4>{{from}}</h4>
-        <span>{{createdAt}}</spam>
+        <span>{{createdAt}}</span>
       </div class="message__body">
         <p>
           <a href="{{url}}" target="_blank">My current location</a>

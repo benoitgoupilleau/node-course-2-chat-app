@@ -53,11 +53,11 @@ describe('Users', ()=>{
 
   it('should return names for node course', ()=>{
     var userList = users.getUserList('Node Course');
-    expect(userList).toEqual(['Mike', 'Jenny'])
+    expect(userList[0]).toEqual(['Mike', 'Jenny'])
   });
 
   it('should return names for react course', ()=>{
     var userList = users.getUserList('React Course');
-    expect(userList).toEqual(['Benoit'])
+    expect(userList[0]).toEqual(['Benoit'])
   })
 });
