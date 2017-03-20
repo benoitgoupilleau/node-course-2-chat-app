@@ -26,6 +26,7 @@ socket.on('disconnect', function(){
 });
 
 socket.on('newMessage', function(message){
+  if(message.text.length >0){
   var formattedTime = moment(message.createdAt).format('h:mm a');
   var template = jQuery("#message-template").html();
   var html = Mustache.render(template, {
@@ -36,6 +37,7 @@ socket.on('newMessage', function(message){
 
   jQuery("#messages").append(html);
   scrollToBottom();
+}
 });
 
 socket.on('newLocationMessage', function (message){
